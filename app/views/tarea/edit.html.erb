@@ -1,0 +1,62 @@
+<div class="container">
+<h1 class="text-white">Editar Tarea</h1>
+
+<%= form_with model: @tarea do |form| %>
+
+ <div class="form-group">
+        <%= form.label :nombre, class: 'text-white' %>
+        <%# <%= form.text_field :nombre, class: 'form-control' %>
+        <input class="form-control" type="text" name="nombre" id="tarea" value="<%=@tarea.nombre%>" />
+      </div>
+
+     <div class="card">
+      <div class="card-body">
+        Define la tarea segun la importancia con los siguientes item seguido de la descripcion. <br>
+
+        <div class="form-check form-check-inline">
+          <input  class="form-check-input" type="radio" name="item" id="inlineRadio1" value="primary"  <% if (@tarea.item == 'primary' ) %> checked <% end %> >
+          <span class="badge badge-pill badge-primary">Primary</span>
+        </div>
+        <div class="form-check form-check-inline">
+          <input  class="form-check-input" type="radio" name="item" id="inlineRadio2" value="secondary" <% if (@tarea.item == 'secondary' ) %> checked <% end %> >
+          <span class="badge badge-pill badge-secondary">Secondary</span>
+        </div>
+        <div class="form-check form-check-inline">
+          <input  class="form-check-input" type="radio" name="item" id="inlineRadio3" value="success" <% if (@tarea.item == 'success' ) %> checked <% end %> >
+          <span class="badge badge-pill badge-success">Success</span>
+        </div>
+        <div class="form-check form-check-inline">
+          <input  class="form-check-input" type="radio" name="item" id="inlineRadio4" value="danger" <% if (@tarea.item == 'danger' ) %> checked <% end %> >
+          <span class="badge badge-pill badge-danger">Danger</span>
+        </div>
+        <div class="form-check form-check-inline">
+          <input  class="form-check-input" type="radio" name="item" id="inlineRadio5" value="warning" <% if (@tarea.item == 'warning' ) %> checked <% end %> >
+          <span class="badge badge-pill badge-warning">Warning</span>
+        </div>
+        <div class="form-check form-check-inline">
+          <input  class="form-check-input" type="radio" name="item" id="inlineRadio6" value="info" <% if (@tarea.item == 'info' ) %> checked <% end %> >
+          <span class="badge badge-pill badge-info">Info</span>
+        </div>
+        <div class="form-check form-check-inline">
+          <input  class="form-check-input" type="radio" name="item" id="inlineRadio7" value="light" <% if (@tarea.item == 'light' ) %> checked <% end %> >
+          <span class="badge badge-pill badge-light">Light</span>
+        </div>
+        <div class="form-check form-check-inline">
+          <input  class="form-check-input" type="radio" name="item" id="inlineRadio8" value="Dark" <% if (@tarea.item == 'Dark' ) %> checked <% end %> >
+          <span class="badge badge-pill badge-dark">Dark</span>
+        </div>
+
+       
+    
+
+      </div>
+      </div>
+
+  <div class="actions" >
+  <br>
+    <%= form.submit  'Editar', class: 'btn btn-primary' %>
+  </div>
+<% end %>
+<br>
+<%= link_to 'Regresar', tareas_path ,class: 'btn btn-secondary' %>
+      </div>

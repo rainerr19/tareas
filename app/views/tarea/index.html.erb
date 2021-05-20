@@ -1,0 +1,87 @@
+
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-md-6">
+      <h1 class="text-white">Bienvenidos a la lista de tareas</h1>
+
+
+      <% @tareas.each do |tarea| %>
+      <div class="alert alert-<%= tarea.item %>" role="alert">
+        <%= tarea.nombre %>
+
+        <%= link_to '<i class="bi bi-pencil">
+              </i>' .html_safe, edit_tarea_path(tarea) ,class:"btn btn-outline-info" %>
+
+        <%= link_to '<i class="bi bi-trash"> 
+           </i>' .html_safe, tarea, method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-outline-danger" %>
+    
+      </div>
+      <% end %>
+
+
+
+    </div>
+    <div class="col-md-6">
+    <%= form_with model: @tarea do |form| %>
+      
+
+      <div class="form-group">
+        <%= form.label :nombre, class: 'text-white' %>
+        <%= form.text_field :nombre, class: 'form-control' %>
+      </div>
+      <div class="actions">
+        <%= form.submit 'Agregar', class: 'btn btn-primary' %>
+      </div>
+      <br>
+      <div class="card">
+      <div class="card-body">
+        Define la tarea segun la importancia con los siguientes item seguido de la descripcion. <br>
+
+        <div class="form-check form-check-inline">
+          <input  class="form-check-input" type="radio" name="item" id="inlineRadio1" value="primary" >
+          <span class="badge badge-pill badge-primary">Primary</span>
+        </div>
+        <div class="form-check form-check-inline">
+          <input  class="form-check-input" type="radio" name="item" id="inlineRadio2" value="secondary" >
+          <span class="badge badge-pill badge-secondary">Secondary</span>
+        </div>
+        <div class="form-check form-check-inline">
+          <input  class="form-check-input" type="radio" name="item" id="inlineRadio3" value="success" >
+          <span class="badge badge-pill badge-success">Success</span>
+        </div>
+        <div class="form-check form-check-inline">
+          <input  class="form-check-input" type="radio" name="item" id="inlineRadio4" value="danger" >
+          <span class="badge badge-pill badge-danger">Danger</span>
+        </div>
+        <div class="form-check form-check-inline">
+          <input  class="form-check-input" type="radio" name="item" id="inlineRadio5" value="warning" >
+          <span class="badge badge-pill badge-warning">Warning</span>
+        </div>
+        <div class="form-check form-check-inline">
+          <input  class="form-check-input" type="radio" name="item" id="inlineRadio6" value="info" >
+          <span class="badge badge-pill badge-info">Info</span>
+        </div>
+        <div class="form-check form-check-inline">
+          <input  class="form-check-input" type="radio" name="item" id="inlineRadio7" value="light" >
+          <span class="badge badge-pill badge-light">Light</span>
+        </div>
+        <div class="form-check form-check-inline">
+          <input  class="form-check-input" type="radio" name="item" id="inlineRadio8" value="Dark" >
+          <span class="badge badge-pill badge-dark">Dark</span>
+        </div>
+
+       
+    
+
+      </div>
+      </div>
+    
+    <% end %>
+    </div>
+  </div>
+
+</div>
+<br>
+
+<%# <%= link_to 'New Tarea', new_tarea_path %> 
